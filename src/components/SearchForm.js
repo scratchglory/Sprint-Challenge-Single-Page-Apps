@@ -4,7 +4,7 @@ export default function SearchForm(props) {
   const changer = event => {
     props.setSearch(event.target.value);
   };
-  console.log(props.search);
+  //   console.log(props.search);
 
   //   console.log(props);
   return (
