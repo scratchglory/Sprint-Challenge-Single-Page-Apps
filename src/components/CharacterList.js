@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Route } from "react-router-dom";
+import styled from "styled-components";
 
 import CharacterCard from "./CharacterCard";
 import SearchForm from "./SearchForm";
+
+const List = styled.section`
+  //   display: flex;
+`;
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
@@ -25,14 +30,16 @@ export default function CharacterList() {
 
   return (
     //    <h2>TODO: `array.map()` over your state here!</h2>
-    <section className="character-list">
-      {/* search function */}
-      <Route
-        path="/"
-        render={props => (
-          <SearchForm {...props} setSearch={setSearch} search={search} />
-        )}
-      />
+
+    <List className="character-list">
+      <div className="search-bar">
+        <Route
+          path="/"
+          render={props => (
+            <SearchForm {...props} setSearch={setSearch} search={search} />
+          )}
+        />
+      </div>
 
       {/* render cast */}
       {cast.map(char => {
@@ -45,6 +52,6 @@ export default function CharacterList() {
           />
         );
       })}
-    </section>
+    </List>
   );
 }
